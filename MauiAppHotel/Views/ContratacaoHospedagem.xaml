@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Define a página principal -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
+             Title="ContratacaoHospedagem"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource OffBlack}">
+
+    <!-- Layout principal que organiza os elementos verticalmente -->
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Spacing="10">
+
+        <!-- Exibição da imagem do logotipo -->
+        <Image Source="morada_brisas.png"
+               HeightRequest="200"
+               WidthRequest="200"
+               Aspect="AspectFit"
+               HorizontalOptions="Center"/>
+
+        <!-- Título da seção -->
+        <Label Text="Cálculo da Diária"
+               FontFamily="Kalam"
+               FontSize="30"
+               TextColor="{StaticResource Gray200}" />
+
+        <!-- Caixa de seleção de quantidade de hóspedes -->
+        <Frame Padding="8" BackgroundColor="DarkSlateGrey">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                <!-- Grid usado para organizar as informações de adultos e crianças -->
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="2*,*,2*"
+                      VerticalOptions="Center">
+
+                    <!-- Label para adultos -->
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Adultos:" />
+
+                    <!-- Exibe o valor do Stepper de adultos -->
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="{StaticResource Gray200}"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_adultos}"/>
+
+                    <!-- Stepper para selecionar quantidade de adultos -->
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_adultos"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1"/>
+
+                    <!-- Label para crianças -->
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Crianças:" />
+
+                    <!-- Exibe o valor do Stepper de crianças -->
+                    <Label Grid.Row="1" Grid.Column="1"
+                           TextColor="{StaticResource Gray200}"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_criancas}"/>
+
+                    <!-- Stepper para selecionar quantidade de crianças -->
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                             x:Name="stp_criancas"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1"/>
+                </Grid>
+
+                <!-- Escolha do tipo de suíte -->
+                <Label Text="Escolha sua Suíte"/>
+                <Picker x:Name="pck_quarto"
+                        Title="Selecione sua Acomodação"/>
+
+                <!-- Caixa para selecionar o período da estadia -->
+                <Frame Padding="10" Margin="10">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#9F8C76">
+                        <!-- Título da seção -->
+                        <Label Text="Periodo da Estadia" TextColor="DarkSlateGrey"/>
+
+                        <!-- Seleção de data para check-in -->
+                        <HorizontalStackLayout>
+                            <Label Text="check-in" TextColor="DarkSlateGrey"
+                                   VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <DatePicker x:Name="dtpck_checkin"
+                                        TextColor="DarkSlateGrey"
+                                        Format="dd/MM/yyyy"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Seleção de data para check-out -->
+                        <HorizontalStackLayout>
+                            <Label Text="check-out" TextColor="DarkSlateGrey"
+                                   VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <DatePicker x:Name="dtpck_checkout"
+                                        TextColor="DarkSlateGrey"
+                                        Format="dd/MM/yyyy"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Botões de ação -->
+                <StackLayout Spacing="20">
+                    <Button Text="Avançar" BackgroundColor="AliceBlue"/>
+                    <Button Text="Sobre Nós" BackgroundColor="AliceBlue" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
