@@ -2,11 +2,81 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.HospedagemContratada"
-             Title="HospedagemContratada">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource OffBlack}">
+
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="10"
+                         Spacing="5">
+
+        <!-- Exibição da imagem do logotipo -->
+        <Image Source="morada_brisas.png"
+        HeightRequest="200"
+        WidthRequest="200"
+        Aspect="AspectFit"
+        HorizontalOptions="Center"/>
+        
+        <Label Text="{Binding QuartoSelecionado.Descricao}"
+               TextColor="{StaticResource Gray200}"
+               FontFamily="Kalam"
+               FontSize="30"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10" 
+               BackgroundColor="DarkSlateGrey"
+               Padding="10">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Label Text="Adultos: " />
+                    <Label Text="{Binding QntAdultos}"
+                           TextColor="{StaticResource White}"
+                           Margin="10,0"/>
+                </HorizontalStackLayout>                       
+                 
+                <HorizontalStackLayout>
+                    <Label Text="Crianças: " />
+                    <Label Text="{Binding QntCriancas}"
+                           TextColor="{StaticResource White}"
+                           Margin="10,0"/>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame Margin ="10"
+               BackgroundColor="DarkSlateGrey"
+               Padding="10">
+            
+            <Grid ColumnDefinitions="*, *, *" 
+                  RowDefinitions="Auto, Auto">
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in :" Margin="10,0" HorizontalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out: " Margin="10,0" HorizontalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia: " Margin="10,0" HorizontalOptions="Center"/>
+
+                <Label Grid.Row="1" Grid.Column="0"
+                       Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       Margin="10,0" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="1"
+                       Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       Margin="10,0" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="2"
+                       Text="{Binding Estadia}"
+                       Margin="10,0" HorizontalOptions="Center"/>
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10" BackgroundColor="DarkSlateGrey">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Valor Total:"/>
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"
+                       TextColor="{StaticResource White}"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar"
+                BackgroundColor="AliceBlue"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" />
     </VerticalStackLayout>
+    
 </ContentPage>

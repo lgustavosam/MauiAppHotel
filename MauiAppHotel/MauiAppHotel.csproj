@@ -63,6 +63,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\SobrePousadaPage.xaml.cs">
+	    <DependentUpon>SobrePousadaPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\SobrePage.xaml.cs">
 	    <DependentUpon>SobrePage.xaml</DependentUpon>
 	  </Compile>
@@ -73,6 +76,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HospedagemContratada.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SobrePousadaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SobrePage.xaml">

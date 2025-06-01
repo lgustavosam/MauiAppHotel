@@ -8,26 +8,32 @@
              BackgroundColor="{StaticResource OffBlack}">
 
     <!-- Layout principal que organiza os elementos verticalmente -->
-    <VerticalStackLayout VerticalOptions="CenterAndExpand"
-                         Padding="10"
-                         Spacing="10">
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="5"
+                         Spacing="5">
 
         <!-- Exibição da imagem do logotipo -->
         <Image Source="morada_brisas.png"
-               HeightRequest="200"
-               WidthRequest="200"
+               HeightRequest="180"
+               WidthRequest="180"
                Aspect="AspectFit"
                HorizontalOptions="Center"/>
 
         <!-- Título da seção -->
-        <Label Text="Cálculo da Diária"
+        <Label Text="Cálculo da Diária" HorizontalTextAlignment="Center"
+               TextTransform="Uppercase"
                FontFamily="Kalam"
-               FontSize="30"
+               FontSize="25"
                TextColor="{StaticResource Gray200}" />
 
         <!-- Caixa de seleção de quantidade de hóspedes -->
-        <Frame Padding="8" BackgroundColor="DarkSlateGrey">
-            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Padding="5"
+               BackgroundColor="DarkSlateGrey"
+               Margin="5">
+            <VerticalStackLayout HorizontalOptions="Center" 
+                                 VerticalOptions="Center"
+                                 Margin="5"
+                                 Spacing="5">
 
                 <!-- Grid usado para organizar as informações de adultos e crianças -->
                 <Grid RowDefinitions="Auto, Auto"
@@ -70,41 +76,67 @@
                 </Grid>
 
                 <!-- Escolha do tipo de suíte -->
-                <Label Text="Escolha sua Suíte"/>
+                <Label Text="Escolha sua Suíte"
+                       TextTransform="Uppercase"/>
                 <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação"/>
+                        Title="Selecione sua Acomodação"
+                        ItemDisplayBinding="{Binding Descricao}"/>
 
                 <!-- Caixa para selecionar o período da estadia -->
-                <Frame Padding="10" Margin="10">
-                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#9F8C76">
+                <Frame Padding="5" Margin="5" BackgroundColor="#00321f">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#00321f" Margin="10" Spacing="10">
+                        
                         <!-- Título da seção -->
-                        <Label Text="Periodo da Estadia" TextColor="DarkSlateGrey"/>
+                        <Label Text="Periodo da Estadía"
+                               TextColor="White"
+                               TextTransform="Uppercase"/>
+                        
 
                         <!-- Seleção de data para check-in -->
                         <HorizontalStackLayout>
-                            <Label Text="check-in" TextColor="DarkSlateGrey"
-                                   VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <Label Text="check-in" TextColor="White"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
                             <DatePicker x:Name="dtpck_checkin"
-                                        TextColor="DarkSlateGrey"
+                                        DateSelected="dtpck_checkin_DateSelected"
+                                        TextColor="White"
                                         Format="dd/MM/yyyy"/>
                         </HorizontalStackLayout>
 
                         <!-- Seleção de data para check-out -->
                         <HorizontalStackLayout>
-                            <Label Text="check-out" TextColor="DarkSlateGrey"
-                                   VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <Label Text="check-out" TextColor="White"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
                             <DatePicker x:Name="dtpck_checkout"
-                                        TextColor="DarkSlateGrey"
+                                        TextColor="White"
                                         Format="dd/MM/yyyy"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Frame>
 
                 <!-- Botões de ação -->
-                <StackLayout Spacing="20">
-                    <Button Text="Avançar" BackgroundColor="AliceBlue"/>
-                    <Button Text="Sobre Nós" BackgroundColor="AliceBlue" Clicked="Button_Clicked"/>
+                <StackLayout Spacing="5">
+                    <Button Text="Avançar"
+                            BackgroundColor="AliceBlue"
+                            Clicked="Button_Clicked_1"/>
+
+                    <Button Text="Localização"
+                            BackgroundColor="AliceBlue"
+                            Clicked="Button_Clicked_2"/>
+
+                    <Button Text="Sobre"
+                            BackgroundColor="AliceBlue"
+                            Clicked="Button_Clicked"/>
+
                 </StackLayout>
+                
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Copyright © 2025 Morada das Brisas" FontSize="10"/>
+                    <Label Text="Todos os direitos reservados" FontSize="10" />
+                </StackLayout>
+
+
+
+
             </VerticalStackLayout>
         </Frame>
     </VerticalStackLayout>

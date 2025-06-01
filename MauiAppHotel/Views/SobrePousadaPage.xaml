@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.SobrePousadaPage"
+             Title="SobrePousadaPage">
+    <Frame Padding="10" BackgroundColor="DarkSlateGrey">
+        <VerticalStackLayout Padding="40" Spacing="5">
+
+            <Label Text="Localização"
+                    FontFamily="Kalam"
+                    FontSize="40"
+                    TextColor="{StaticResource Gray200}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+            
+            <Label Text="A Pousada Morada das Brisas está situada em um dos cenários mais deslumbrantes do litoral brasileiro, no Condomínio Outeiro das Brisas. Entre as famosas vilas de Trancoso e Caraíva, nossa pousada oferece fácil acesso às paradisíacas praias do Outeiro, Espelho e Amores.
+Para quem chega de avião, o aeroporto mais próximo é o de Porto Seguro, a aproximadamente 50 km de distância. O trajeto pode ser feito de carro ou transfer privativo, garantindo conforto e segurança até sua chegada."
+               FontFamily="Kalam"
+               FontSize="15"
+               TextColor="{StaticResource Gray200}"
+               HorizontalOptions="Center"
+               LineBreakMode="WordWrap"/>
+
+            <StackLayout>
+                <Label FontFamily="Kalam"
+                   FontSize="15"
+                   TextColor="{StaticResource Gray200}"
+                   HorizontalOptions="Start"
+                   LineBreakMode="WordWrap"
+                   FontAttributes="Bold"
+                   Text="📍 Endereço:"/>
+
+                <Label FontFamily="Kalam"
+                   FontSize="15"
+                   TextColor="{StaticResource Gray200}"
+                   HorizontalOptions="Center"
+                   LineBreakMode="WordWrap"
+                   Text="Km 18, Estrada de Caraíva – Praia do Espelho, Porto Seguro, BA, 45810-000"/>
+            </StackLayout>
+
+            <Image Source="mapa.png"
+                   HeightRequest="200"
+                   WidthRequest="200"/> 
+
+
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>
