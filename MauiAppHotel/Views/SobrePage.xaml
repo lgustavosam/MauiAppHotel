@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.SobrePage">
 
+    <!-- Estrutura principal da página -->
     <Frame Padding="10" BackgroundColor="DarkSlateGrey">
         <VerticalStackLayout Padding="40" Spacing="40">
 
+            <!-- Exibição da imagem do logotipo ou marca -->
             <Image Source="original.png"
                    HeightRequest="200"
                    WidthRequest="200"/>
 
-            
+            <!-- Mensagem ou slogan da aplicação -->
             <Label Text="Conectando ideias ao futuro"
                    FontFamily="Kalam"
                    FontSize="20"
@@ -18,6 +20,7 @@
                    VerticalOptions="Center"
                    HorizontalOptions="CenterAndExpand"/>
 
+            <!-- Ano de referência da aplicação -->
             <Label Text="2025"
                    FontFamily="Kalam"
                    FontSize="15"
